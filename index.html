@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Acesso Privado 💕</title>
+
+<!-- ====== Facebook Pixel ====== -->
+<script>
+  (function(f,b,e,v,n,t,s){
+    if(f.fbq) return; n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s);
+  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '805676938847520');   // SEU PIXEL
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=805676938847520&ev=PageView&noscript=1"/>
+</noscript>
+<!-- ============================ -->
+
+<style>
+  :root{
+    --pink:#ff4d9d;
+    --pink-2:#ff8ac0;
+    --bg1:#0f0f12;
+    --bg2:#1a1b21;
+    --glass:rgba(255,255,255,.06);
+    --text:#eaeaea;
+    --muted:#cfcfd6;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at -10% -10%, rgba(255,77,157,.15), transparent 60%),
+      radial-gradient(1200px 800px at 110% 110%, rgba(255,138,192,.12), transparent 60%),
+      linear-gradient(135deg,var(--bg1),var(--bg2));
+    min-height:100dvh;
+    display:grid;
+    place-items:center;
+    padding:28px;
+    overflow-x:hidden;
+  }
+
+  /* brilho suave de fundo */
+  .glow{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+  }
+  .glow::before, .glow::after{
+    content:""; position:absolute; filter:blur(70px); opacity:.35;
+    transform:translate(-50%,-50%);
+    animation:float 10s ease-in-out infinite;
+  }
+  .glow::before{
+    width:420px; height:420px; left:20%; top:18%;
+    background:radial-gradient(closest-side, var(--pink), transparent 70%);
+  }
+  .glow::after{
+    width:520px; height:520px; left:80%; top:78%;
+    background:radial-gradient(closest-side, var(--pink-2), transparent 70%);
+    animation-delay: -4s;
+  }
+  @keyframes float{
+    0%,100%{transform:translate(-50%,-50%)}
+    50%{transform:translate(calc(-50% + 12px), calc(-50% - 8px))}
+  }
+
+  /* cartão principal */
+  .card{
+    position:relative; z-index:1;
+    width:100%; max-width:440px;
+    background:var(--glass);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+    padding:28px 24px 24px;
+    text-align:center;
+    box-shadow:
+      0 20px 50px rgba(0,0,0,.55),
+      inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter: blur(10px);
+  }
+
+  /* avatar com aro neon e brilho pulsante */
+  .avatar-wrap{
+    width:124px; height:124px; margin:-82px auto 10px;
+    position:relative;
+  }
+  .avatar-ring{
+    position:absolute; inset:-6px;
+    border-radius:50%;
+    background:
+      conic-gradient(from 0deg, var(--pink), var(--pink-2), var(--pink));
+    filter:blur(6px); opacity:.65; z-index:0;
+    animation:spin 12s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg) } }
+
+  .avatar{
+    position:relative; z-index:1;
+    width:124px; height:124px; border-radius:50%;
+    object-fit:cover; display:block; margin:0 auto;
+    border:4px solid rgba(255,255,255,.25);
+    box-shadow:0 12px 30px rgba(255,77,157,.25);
+  }
+
+  h1{
+    font-size:1.55rem; letter-spacing:.2px;
+    background:linear-gradient(45deg,var(--pink),var(--pink-2));
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent; margin-top:6px; margin-bottom:6px;
+  }
+  p{ color:var(--muted); margin-bottom:18px; }
+
+  .field{
+    display:flex; gap:10px; margin-bottom:10px;
+  }
+  input{
+    flex:1; padding:12px 14px; border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.05);
+    color:var(--text); text-align:center; outline:none;
+    transition:.2s border-color, .2s box-shadow, .2s background;
+  }
+  input:focus{
+    border-color:rgba(255,77,157,.45);
+    box-shadow:0 0 0 4px rgba(255,77,157,.12);
+    background:rgba(255,255,255,.07);
+  }
+
+  button{
+    width:100%; padding:12px 14px; border-radius:12px;
+    border:none; cursor:pointer; font-weight:700; letter-spacing:.2px;
+    color:#fff; background:linear-gradient(45deg,var(--pink),var(--pink-2));
+    box-shadow:0 10px 22px rgba(255,77,157,.28);
+    transition:transform .12s ease, box-shadow .2s ease, filter .2s ease, opacity .2s ease;
+  }
+  button:hover{ transform:translateY(-1px); filter:saturate(1.05) }
+  button:active{ transform:translateY(0); filter:saturate(.95) }
+  .pulse{ animation:pulse 2.2s ease-in-out infinite }
+  @keyframes pulse{
+    0%,100%{ box-shadow:0 10px 22px rgba(255,77,157,.28) }
+    50%{ box-shadow:0 12px 30px rgba(255,77,157,.40) }
+  }
+
+  .err{ color:#ffafc7; min-height:22px; margin-top:12px; }
+  .small{ font-size:.86rem; color:#bdbdcc; margin-top:8px }
+
+  /* animação de erro (shake) */
+  .shake{ animation:shake .3s linear }
+  @keyframes shake{
+    0%,100%{ transform:translateX(0) }
+    25%{ transform:translateX(-5px) }
+    75%{ transform:translateX(5px) }
+  }
+
+  /* spinner no botão enquanto redireciona */
+  .btn-loading{ position:relative; pointer-events:none; opacity:.9 }
+  .btn-loading::after{
+    content:""; position:absolute; right:14px; top:50%; width:16px; height:16px;
+    margin-top:-8px; border:2px solid rgba(255,255,255,.7); border-left-color:transparent;
+    border-radius:50%; animation:spin .8s linear infinite;
+  }
+
+  @media (max-width:420px){
+    .card{ padding:26px 18px 20px }
+    .avatar-wrap{ margin:-74px auto 6px }
+  }
+</style>
+</head>
+<body>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <div class="card" role="dialog" aria-labelledby="t">
+    <div class="avatar-wrap">
+      <div class="avatar-ring" aria-hidden="true"></div>
+      <!-- mantenha exatamente este caminho/pasta no repositório -->
+      <img class="avatar" src="./4 videos + foto de perfil/perfilnova.jpg" alt="Foto de perfil"
+           onerror="this.src='data:image/svg+xml;utf8,\
+           <svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 120 120\\'>\
+           <defs><linearGradient id=\\'g\\' x1=\\'0\\' x2=\\'1\\'><stop stop-color=\\'%23ff4d9d\\'/><stop offset=\\'1\\' stop-color=\\'%23ff8ac0\\'/></linearGradient></defs>\
+           <rect width=\\'120\\' height=\\'120\\' rx=\\'60\\' fill=\\'#20222a\\'/>\
+           <circle cx=\\'60\\' cy=\\'50\\' r=\\'22\\' fill=\\'url(#g)\\'/>\
+           <rect x=\\'28\\' y=\\'78\\' width=\\'64\\' height=\\'26\\' rx=\\'13\\' fill=\\'url(#g)\\'/>\
+           </svg>';">
+    </div>
+
+    <h1 id="t">Acesso Exclusivo</h1>
+    <p>Digite a senha para acessar os vídeos</p>
+
+    <div class="field">
+      <input id="senha" type="password" inputmode="numeric" autocomplete="off" placeholder="Senha 🔒" aria-label="Senha">
+    </div>
+
+    <button id="btnEntrar" class="pulse" aria-live="polite">Entrar</button>
+    <div id="err" class="err" role="status" aria-live="polite"></div>
+
+    <div class="small">Segurança ativada. Seu acesso é privado 🔐</div>
+  </div>
+
+<script>
+  // Configurações
+  const PASSWORD  = "4151";
+  const DRIVE_URL = "https://drive.google.com/drive/folders/1khHKQllwpqWIoOiLvWV6g2bRsTYNy82E?usp=sharing";
+
+  // Elementos
+  const btn  = document.getElementById('btnEntrar');
+  const pass = document.getElementById('senha');
+  const err  = document.getElementById('err');
+
+  // Ações
+  btn.addEventListener('click', tryEnter);
+  pass.addEventListener('keydown', e => { if(e.key === 'Enter') tryEnter(); });
+
+  function tryEnter(){
+    const val = pass.value.trim();
+
+    if(!val){
+      showError('Digite a senha para continuar.');
+      return;
+    }
+
+    if(val === PASSWORD){
+      // Marca compra/conversão (ajuste value/currency se quiser)
+      try { fbq('track', 'Purchase', { value: 1.00, currency: 'BRL' }); } catch(e){}
+
+      // Guarda sessão simples
+      sessionStorage.setItem('hasAccess', '1');
+
+      // Feedback no botão
+      btn.classList.add('btn-loading');
+      btn.textContent = 'Redirecionando...';
+
+      // Dá um tempo pro Pixel enviar e redireciona
+      setTimeout(() => { window.location.href = DRIVE_URL; }, 420);
+    } else {
+      showError('Senha incorreta. Tente novamente.');
+      pass.value = '';
+      pass.focus();
+    }
+  }
+
+  function showError(message){
+    err.textContent = message;
+    document.querySelector('.card').classList.remove('shake');
+    // reflow para reiniciar a animação
+    void document.querySelector('.card').offsetWidth;
+    document.querySelector('.card').classList.add('shake');
+    setTimeout(() => err.textContent = '', 2500);
+  }
+</script>
+</body>
+</html>
